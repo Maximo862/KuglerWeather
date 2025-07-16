@@ -1,12 +1,17 @@
-import React from "react";
+import {useContext, useState} from "react";
 import { Sun, Cloud, CloudRain, CloudSnow } from "lucide-react";
+import { Average, Kevintocelsius, Min, Max } from "../App";
+import { Weathercontext } from "../Context/Context";
+
 
 export function CenterPanel() {
+  
+const { data5days } = useContext(Weathercontext)
+  
   return (
     <div className="col-lg-6">
       <div className="glass-card p-4 h-100">
-        <h3 className="h5 fw-semibold mb-4">5-day forecast</h3>
-
+       
         <div className="hourly-timeline mb-4">
           <div className="row g-2 mb-4">
             <div className="col hourly-item">
@@ -78,6 +83,7 @@ export function CenterPanel() {
           <div className="temperature-graph mb-4"></div>
         </div>
 
+ <h3 className="h5 fw-semibold mb-4">5-day forecast</h3>
         <div className="d-flex flex-column gap-2">
           <div className="forecast-item p-3 active">
             <div className="d-flex justify-content-between align-items-center">
@@ -89,6 +95,7 @@ export function CenterPanel() {
                 </div>
               </div>
               <div className="d-flex align-items-center gap-4">
+                  <span className="fw-medium">{Kevintocelsius(Average(data5days,0,8))}°</span>
                 <div className="progress-custom" style={{ width: "100px" }}>
                   <div
                     className="progress-bar-custom"
@@ -96,8 +103,8 @@ export function CenterPanel() {
                   ></div>
                 </div>
                 <div className="text-end">
-                  <span className="fw-medium">-1°</span>
-                  <span className="text-muted-light ms-2">-4°</span>
+                  <span className="fw-medium">{Kevintocelsius(Min(data5days,0,8))}°</span>
+                  <span className="text-muted-light ms-2">{Kevintocelsius(Max(data5days,0,8))}°</span>
                 </div>
               </div>
             </div>
@@ -113,6 +120,7 @@ export function CenterPanel() {
                 </div>
               </div>
               <div className="d-flex align-items-center gap-4">
+                     <span className="fw-medium">{Kevintocelsius(Average(data5days,8,16))}°</span>
                 <div className="progress-custom" style={{ width: "100px" }}>
                   <div
                     className="progress-bar-custom"
@@ -120,8 +128,8 @@ export function CenterPanel() {
                   ></div>
                 </div>
                 <div className="text-end">
-                  <span className="fw-medium">-2°</span>
-                  <span className="text-muted-light ms-2">-5°</span>
+                  <span className="fw-medium">{Kevintocelsius(Min(data5days,8,16))}°</span>
+                  <span className="text-muted-light ms-2">{Kevintocelsius(Max(data5days,8,16))}°</span>
                 </div>
               </div>
             </div>
@@ -137,6 +145,7 @@ export function CenterPanel() {
                 </div>
               </div>
               <div className="d-flex align-items-center gap-4">
+                     <span className="fw-medium">{Kevintocelsius(Average(data5days,16,24))}°</span>
                 <div className="progress-custom" style={{ width: "100px" }}>
                   <div
                     className="progress-bar-custom"
@@ -144,8 +153,8 @@ export function CenterPanel() {
                   ></div>
                 </div>
                 <div className="text-end">
-                  <span className="fw-medium">3°</span>
-                  <span className="text-muted-light ms-2">-1°</span>
+                  <span className="fw-medium">{Kevintocelsius(Min(data5days,16,24))}°</span>
+                  <span className="text-muted-light ms-2">{Kevintocelsius(Max(data5days,16,24))}°</span>
                 </div>
               </div>
             </div>
@@ -161,6 +170,7 @@ export function CenterPanel() {
                 </div>
               </div>
               <div className="d-flex align-items-center gap-4">
+                     <span className="fw-medium">{Kevintocelsius(Average(data5days,24,32))}°</span>
                 <div className="progress-custom" style={{ width: "100px" }}>
                   <div
                     className="progress-bar-custom"
@@ -168,8 +178,8 @@ export function CenterPanel() {
                   ></div>
                 </div>
                 <div className="text-end">
-                  <span className="fw-medium">4°</span>
-                  <span className="text-muted-light ms-2">1°</span>
+                  <span className="fw-medium">{Kevintocelsius(Min(data5days,24,32))}°</span>
+                  <span className="text-muted-light ms-2">{Kevintocelsius(Max(data5days,24,32))}°</span>
                 </div>
               </div>
             </div>
@@ -185,6 +195,7 @@ export function CenterPanel() {
                 </div>
               </div>
               <div className="d-flex align-items-center gap-4">
+                     <span className="fw-medium">{Kevintocelsius(Average(data5days,32,40))}°</span>
                 <div className="progress-custom" style={{ width: "100px" }}>
                   <div
                     className="progress-bar-custom"
@@ -192,8 +203,8 @@ export function CenterPanel() {
                   ></div>
                 </div>
                 <div className="text-end">
-                  <span className="fw-medium">7°</span>
-                  <span className="text-muted-light ms-2">2°</span>
+                  <span className="fw-medium">{Kevintocelsius(Min(data5days,32,40))}°</span>
+                  <span className="text-muted-light ms-2">{Kevintocelsius(Max(data5days,32,40))}°</span>
                 </div>
               </div>
             </div>
