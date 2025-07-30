@@ -7,6 +7,7 @@ export function Weatherprovider({ children }) {
   const [data5days, setData5days] = useState(null);
   const [city2, setcity2] = useState("Helsinki");
   const [datarightpanel, setdatarightpanel] = useState(null);
+  const [celsiustoF, setCelsiustoF] = useState(false);
   const citys = ["New York", "Buenos Aires", "Bahia Blanca"];
   const [citysfetch, setCitysfetch] = useState(null);
 
@@ -17,7 +18,7 @@ export function Weatherprovider({ children }) {
     month: "short",
   };
 
-  const actuallydate = date.toLocaleDateString("es-ES", options);
+  const actuallydate = date.toLocaleDateString("en-US", options);
 
   useEffect(() => {
     if (!city1) {
@@ -37,8 +38,6 @@ export function Weatherprovider({ children }) {
       });
   }, [city1]);
 
-  //Second FETCH
-
   useEffect(() => {
     fetch(
       `https://api.openweathermap.org/data/2.5/forecast?q=${city2}&appid=806afa2c328b56fdfcd6e19402bf927d`
@@ -54,7 +53,6 @@ export function Weatherprovider({ children }) {
       });
   }, [city2]);
 
-  //3 Fetch at the same time
   useEffect(() => {
     async function Fetchs() {
       const result = await Promise.all(
@@ -79,6 +77,8 @@ export function Weatherprovider({ children }) {
         setcity2,
         datarightpanel,
         citysfetch,
+        celsiustoF,
+        setCelsiustoF,
       }}
     >
       {children}

@@ -4,14 +4,14 @@ import { DefineIcon, Kevintocelsius, Hour } from "../../Utils/Utils.jsx";
 import { Nexthourscentercard } from "./Nexthourscentercard.jsx";
 
 export function Nexthourscenter() {
-  const { data5days } = useContext(Weathercontext);
+  const { data5days, celsiustoF, setCelsiustoF } = useContext(Weathercontext);
 
   const nexthours = Array.from({ length: 8 }, (c, i) => {
     const index = i + 1;
     return {
       hour: Hour(data5days, index),
       icon: DefineIcon(data5days.list[index].weather[0].description, 20),
-      temp: Kevintocelsius(data5days.list[index].main.temp),
+      temp: Kevintocelsius(data5days.list[index].main.temp, celsiustoF),
     };
   });
 
@@ -29,7 +29,7 @@ export function Nexthourscenter() {
           ))}
         </div>
 
-        <div className="temperature-graph mb-4"></div>
+        <button className="Button-animation mb-4 w-100" onClick={() => setCelsiustoF(!celsiustoF)}>Celsius to Farenheit</button>
       </div>
     </section>
   );

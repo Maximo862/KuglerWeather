@@ -11,7 +11,7 @@ import { Nextdayscard } from "./Nextdayscard.jsx";
 import dayjs from "dayjs";
 
 export function Nextdays() {
-  const { data5days } = useContext(Weathercontext);
+  const { data5days, celsiustoF } = useContext(Weathercontext);
 
   const nextdays = Array.from({ length: 5 }, (d, i) => {
     const day = data5days.list[i * 8];
@@ -23,9 +23,9 @@ export function Nextdays() {
       day: dayjs().add(indexdaydate, "day").format("dddd"),
       description: day.weather[0].description,
       icon: DefineIcon(day.weather[0].description, 24),
-      temp: Kevintocelsius(Average(data5days, start, end)),
-      tempmin: Kevintocelsius(Min(data5days, start, end)),
-      tempmax: Kevintocelsius(Max(data5days, start, end)),
+      temp: Kevintocelsius(Average(data5days, start, end), celsiustoF),
+      tempmin: Kevintocelsius(Min(data5days, start, end),celsiustoF),
+      tempmax: Kevintocelsius(Max(data5days, start, end), celsiustoF),
     };
   });
 

@@ -1,3 +1,5 @@
+import { Min } from "../../Utils/Utils";
+
 export function Nextdayscard({
   day,
   description,
@@ -6,6 +8,16 @@ export function Nextdayscard({
   temp_min,
   temp_max,
 }) {
+const min = parseFloat(temp_min)
+const max = parseFloat(temp_max)
+const tempnow = parseFloat(temp)
+console.log("Valores:", tempnow, min, max);
+
+
+
+const percentage = ((tempnow - min) / (max - min)) * 100
+  
+
   return (
     <div className="forecast-item p-3">
       <div className="d-flex justify-content-between align-items-center">
@@ -19,7 +31,7 @@ export function Nextdayscard({
         <div className="d-flex align-items-center gap-4">
           <span className="fw-medium">{temp}°</span>
           <div className="progress-custom" style={{ width: "100px" }}>
-            <div className="progress-bar-custom" style={{ width: "80%" }}></div>
+            <div className="progress-bar-custom" style={{ width: `${percentage}%` }}></div>
           </div>
           <div className="text-end">
             <span className="fw-medium">{temp_min}°</span>

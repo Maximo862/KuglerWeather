@@ -8,6 +8,9 @@ import {
   CloudAlert,
 } from "lucide-react";
 
+
+
+
 export function Hour(data, index) {
   const info = data.list[index].dt_txt;
   const hour = info.split(" ")[1].slice(0, 5);
@@ -19,8 +22,11 @@ export function Hour(data, index) {
   return hour + ampm;
 }
 
-export function Kevintocelsius(kevin) {
-  return (kevin - 273.15).toFixed();
+export function Kevintocelsius(kevin, celsiustoF) {
+  const Celsius = (kevin - 273.15);
+  if (celsiustoF === false) return Math.round(Celsius)
+  const Farenheit = (Celsius * 9 / 5) + 32; 
+  return Math.round(Farenheit);
 }
 
 export function Average(array, start, end) {
@@ -35,19 +41,27 @@ export function Average(array, start, end) {
 export function Min(array, start, end) {
   if (!array || !array.list) return;
   let sum = 0;
+  let min = 999999999; 
   for (let i = start; i < end; i++) {
-    sum += array.list[i].main.temp_min;
+    sum = array.list[i].main.temp_min;
+    if (sum < min) {
+      min = sum
+    }
   }
-  return sum / 8;
+  return min;
 }
 
 export function Max(array, start, end) {
   if (!array || !array.list) return;
   let sum = 0;
+  let max = 0;
   for (let i = start; i < end; i++) {
-    sum += array.list[i].main.temp_max;
+    sum = array.list[i].main.temp_max;
+    if (sum > max) {
+      max = sum
+    }
   }
-  return sum / 8;
+  return max;
 }
 
 export function DefineIcon(description, size) {
