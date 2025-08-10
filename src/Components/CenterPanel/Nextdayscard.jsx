@@ -1,5 +1,3 @@
-import { Min } from "../../Utils/Utils";
-
 export function Nextdayscard({
   day,
   description,

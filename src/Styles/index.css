@@ -522,3 +522,12 @@ a:hover {
 .footer-link-aboutme:hover {
   color: #03A9F4 !important;
 }
+
+@media (max-width: 576px) {
+  .forecast-item .d-flex {
+    flex-direction: column !important;
+    align-items: center !important;
+
+    gap: 8px;
+  }
+}
