@@ -3,6 +3,7 @@ import { IoLogoGithub } from "react-icons/io";
 import { SiGmail } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
 
+
 export function Footer() {
   return (
     <footer className="footer-custom bg-dark text-white mt-5 pt-4 pb-2 border-top">
@@ -28,20 +29,23 @@ export function Footer() {
               <IoLogoGithub />
             </a>
             <a
-              href="https://linkedin.com/in/TU-LINKEDIN"
+              href="https://www.linkedin.com/in/maximo-kugler-716962379/"
               className="me-3 text-white footer-icon footer-linkedin"
+               target="_blank"
             >
               <FaLinkedin />
             </a>
             <a
               href="mailto:Maximokugler9@gmail.com"
               className="me-3 text-white footer-icon footer-gmail"
+               target="_blank"
             >
               <SiGmail />
             </a>
             <a
               href="/Aboutme"
               className="footer-link-aboutme text-white text-decoration-underline"
+               target="_blank"
             >
               More about me
             </a>

@@ -2,12 +2,6 @@
 
 Weather forecast app created as part of a challenge on [devChallenges.io](https://devchallenges.io/challenge/weather-app). It allows users to search for any city and get a 5-day, hourly weather forecast, with additional data such as wind, humidity, and more.
 
-[🔗 Live Demo](https://tuproyecto.vercel.app)
-
-## 🖼️ Screenshots
-
-![App Screenshot](./public/Screenshots)
-
 ## 🚀 Features
 
 - Search weather by city

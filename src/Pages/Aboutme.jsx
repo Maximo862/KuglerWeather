@@ -34,7 +34,7 @@ export function Aboutme() {
                     >
                       <SiGmail className="gmail" size={33} />
                     </a>
-                    <a href="" className="card2">
+                    <a href="https://www.linkedin.com/in/maximo-kugler-716962379/" className="card2">
                       <FaLinkedinIn className="linkedin" size={35} />
                     </a>
                   </div>
