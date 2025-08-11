@@ -527,7 +527,6 @@ a:hover {
   .nextdaysmobile{
     flex-direction: column !important;
     align-items: center !important;
-    
     gap: 8px;
   }
 }
